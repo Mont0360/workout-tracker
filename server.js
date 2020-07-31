@@ -1,28 +1,25 @@
 const express = require("express");
-const path = require("path");
 const mongoose = require("mongoose");
-const bodyParser = require("body-parser");
-// const exerciseRoutes = require("./routes/exercises");
-// const workoutRoutes = require("./routes/workouts");
-const apiRoutes = require("./routes/api");
-const viewRoutes = require("./routes/views");
+const morgan = require("morgan");
+const apiRoutes = require("./routes/apiRoute.js");
+const htmlRoutes = require("./routes/htmlRoute.js")
 
-const app = express();
 const PORT = process.env.PORT || 3000;
 
-const MONGODB_URI = process.env.MONGODB_URI || "mongodb://user:password1@ds029595.mlab.com:29595/heroku_n01tvthg";
-mongoose.connect(MONGODB_URI);
+const app = express();
+app.use(morgan("dev"));
 
-app.use(bodyParser.urlencoded({ extended: false }));
-app.use(bodyParser.json());
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
 app.use(express.static("public"));
 
-app.use(apiRoutes);
-app.use(viewRoutes);
-// app.use(workoutRoutes);
-
-app.get("*", function(req, res) {
-  res.sendFile(path.join(__dirname, "./public/index.html"));
+mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/workout", {
+  useNewUrlParser: true,
+  useFindAndModify: false
 });
 
-app.listen(PORT, () => console.log("listening on port: ", PORT));
+app.use(htmlRoutes);
+app.use(apiRoutes);
+app.listen(PORT, () => {
+  console.log(`App running on port ${PORT}!`);
+});
