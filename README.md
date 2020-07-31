@@ -27,3 +27,11 @@ The user should be able to:
 ![Screen Shot 2020-07-31 at 10 32 18 AM](https://user-images.githubusercontent.com/61704824/89051334-b7d42c00-d319-11ea-9024-e6058c9b1551.png)
 ![Screen Shot 2020-07-31 at 10 32 54 AM](https://user-images.githubusercontent.com/61704824/89051344-bc004980-d319-11ea-969e-06bb7565076e.png)
 ![Screen Shot 2020-07-31 at 10 36 02 AM](https://user-images.githubusercontent.com/61704824/89051354-befb3a00-d319-11ea-810d-d807cdce4c0b.png)
+
+## Link to Deployed Page on Heroku
+
+https://mont0360-workout-tracker.herokuapp.com
+
+## Link to GitHub Repo
+
+https://github.com/Mont0360/workout-tracker
