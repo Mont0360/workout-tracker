@@ -10,6 +10,8 @@ const viewRoutes = require("./routes/views");
 const app = express();
 const PORT = process.env.PORT || 3000;
 
+const MONGODB_URI = process.env.MONGODB_URI || "mongodb://user:password1@ds029595.mlab.com:29595/heroku_n01tvthg";
+mongoose.connect(MONGODB_URI);
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
